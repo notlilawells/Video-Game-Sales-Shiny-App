@@ -18,4 +18,4 @@ Here are a few sneak peek of the app itself.
 
 ### Part 2: Sales by Region
 
-![sales_by_region]
+![sales_by_region](https://github.com/notlilawells/Video-Game-Sales-Shiny-App/blob/main/imgs/pt2.png)
