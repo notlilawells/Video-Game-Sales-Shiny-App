@@ -1,0 +1,69 @@
+---
+title: "Final Project Additional Information"
+subtitle: "Data Visualization (STAT 302)"
+author: "Lila Wells"
+
+format:
+  html:
+    toc: true
+    embed-resources: true
+    link-external-newwindow: true
+    fig-dpi: 300
+    
+execute:
+  warning: false
+  
+---
+
+## Prompt
+
+What is the core concept(s) or insight(s) into the data that you believe the visualization communicates? If you choose to include animation then explain why animation helps. If you build an app then explain your choice of widgets and what about the data it help users understand.
+
+## Answer and Discussion
+
+### Sales by Game Characteristics
+
+#### Core Concepts and Insights
+This section of my Shiny app explores the global sales of a chosen video game relative the average global sales of other games in the dataset that have the same genre, year of release, platform, or publisher that the chosen game does. I wanted to visualize a game's global sales performance relative to an average. Initially I coded this section of the app to compare a selected game's global sales relative the entire dataset's average global sales. However, I realized that this initial visualization didn't capture how different aspects of a game (like its genre, publisher, etc.) could impact the interpretation of its overall sales performance. 
+
+Thus, I decided to break the "average" bar down a bit. This dataset provided information on a video game's genre, year of release, platform, and publisher. By allowing the user to choose their comparison (i.e., comparing a game's sales relative to the average sales for other game's in the same genre), this plot offers the user insights into how the game performed (sales-wise) relative to other games in a given category: a much more nuanced look into sales performance than my initial idea. 
+
+
+> For example, if a user were to select **Dance Central** from the game selection dropdown menu and **Genre** from the comparison input, they may notice that **Dance Central's** global sales were far lower than the average global sales for other games in its genre (Misc). However, if the user were to then select **Publisher** from the comparison input, they'd see a slightly different picture. **Dance Central's** global sales were actually on par with the average global sales for other games released by its publisher (X360). So, while **Dance Central** didn't perform too well relative to other games in the Misc genre, it's sales performance was actually pretty good considering its publisher (X360). 
+
+
+To help the user get a better understanding of the different characteristics of a selected video game, I also included a reactive table below the bar plot which has columns for different facets of the game (Genre, Year Published, Platform, and Publisher). This table data helped to supplement the bar plot by giving the user insights into *what* genre, year of release, platform, or publisher the game had. Knowing this information helps users interpret the average sales value that a game is being compared to. In the **Dance Central** example, the bar plot tells us that **Dance Central** had lower sales on average than its genre but that it met the sales average for it publisher. The table then tells us that this game's genre was Misc, and its publisher was X360. 
+
+#### Widget Choice
+
+I wanted to keep my widget choice as simple as possible to minimize the user's cognitive load when interacting with this app. Thus, I created three inputs for this section to offer the user a more holistic view of a selected video game's sales performance: 
+
+1. The first, **Select a game** included a dropdown menu with the names of all games in the dataset. This widget allowed the user to specify what game they wanted to highlight for comparison (and thus what game would be visualized in the red bar of the barplot). 
+
+2. The second widget **Choose a comparison**, specified the type of plot that was going to be outputted. In order for this barplot to be shown, the user had to have selected *Sales by game characteristics*. I chose to conditionally output the two plots in this Shiny app to maximize its usability and minimize the user's cognitive load (by not including too much information on the screen at once). 
+
+3. The third widget **Choose a comparison**, allowed the user to specify *what* average they wanted to compare the global sales of their video game to. For example, the average sales for all game's in its genre, by its publisher, on its platform, or released during its release year. This comparison option, as noted in the section above, gives the user more nuanced insights into how the game performed relative to games like it (in different categories). The output of this widget choice is visualized in the grey bar on the barplot. 
+
+
+### Sales by Region
+
+#### Core Concepts and Insights
+
+The core concept of this section of my Shiny app is that it offers regional insights into a selected game's sales performance, as well as where the game performed best. The bar plot visualizes a selected game's sales in North America, Europe, Japan, Other (meaning all other countries but the aforementioned), and Globally (or all of its sales combined). By including this visualization, the app gives the user readily accessible insights into where the game sold the most copies (or was most popular / had the best performance). 
+
+To minimize the user's cognitive load, I kept the bar plot minimalistic, and included a reactive table below it to display the sales numbers for the selected game in each region. This seemed to communicate sales metrics in a more digestible form. I also included reactive text below the barplot so that, when the user selected a sales region to highlihgt, the text automatically updated to inform the user about both *(1)* the game's sales metrics in that region, and *(2)* the percentage of the game's total sales that came from that region. 
+
+> For example, if the user was to select **Tom Clancy's The Division** from the game selection drop down menu, they may see from the resulting bar plot that this game sold the most copies in Europe and North America. The user may then look at the barplot for more specific details, and they would find that the game's sales in Europe versus North America were $1.61 million and $1.28 million, respectively. The user may then want to see what percentage of **Tom Clancy's The Division's** sales came from Japan, where it sold far less copies. By clicking "Japan" from the radio button input, the user could see (from the reactive text) that only 4.16% of this game's overall sales came from Japan. 
+
+Overall, this section of the app informs users about a game's regional sales performance in three different ways: (1) visually in a bar plot, (2) numerically in a table, and (3) in text (using percentages). 
+
+
+#### Widget Choice
+
+I kept my widget choice simple in this section as well to minimize the user’s cognitive load. I created three inputs for this section to offer the user a more holistic view of a video game’s sales performance in different regions:
+
+1. The first, **Select a game** included a dropdown menu with the names of all games in the dataset. This widget allowed the user to specify what game they wanted to explore (and thus what game would be visualized in the bar plot). 
+
+2. The second widget **Choose a comparison**, specified the type of plot that was going to be outputted. In order for these visualizations to be shown, the user had to have selected *Sales by region*. I chose to conditionally output the two plots in this Shiny app to maximize its usability and minimize the user's cognitive load (by not including too much information on a screen at once). 
+
+3. The third widget **Select a sales region to highlight**, allowed the user to specify *what region* they want to highlight in the reactive text output. The resulting output respecified how much the selected game sold in that region (ex. $0.15 million in Japan), as well as *what percentage* of the game's total sales came from that region (ex. 4.16 of total sales). 
