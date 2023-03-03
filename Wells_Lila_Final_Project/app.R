@@ -17,6 +17,7 @@ library(tidyr)
 library(scales)
 library(htmltools)
 library(shinyjs)
+library(rsconnect)
 
 # Loading data
 vgames <- read_csv('data/vgsales.csv') 

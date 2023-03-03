@@ -1,0 +1,14 @@
+name: Video_Game_Sales
+title: Video_Game_Sales
+username:
+account: lila-wells
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8473516
+bundleId: 6913839
+url: https://lila-wells.shinyapps.io/Video_Game_Sales/
+when: 1677886669.4221
+lastSyncTime: 1677886669.42211
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: data/Untitled.ipynb|playaround.R
