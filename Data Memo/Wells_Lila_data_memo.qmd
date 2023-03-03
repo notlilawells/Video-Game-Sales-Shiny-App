@@ -1,0 +1,113 @@
+---
+title: "Final Project Data Memo"
+subtitle: "Data Visualization (STAT 302)"
+author: "Lila Wells"
+
+format:
+  html:
+    toc: true
+    embed-resources: true
+    link-external-newwindow: true
+    fig-dpi: 300
+    
+execute:
+  warning: false
+  
+---
+
+## Instructions
+
+After selecting data for the final project write up a short memo that at minimum covers the following:
+
+### Loading Libraries and Dataset Files
+
+```{r}
+#| label: loading-data-and-libraries
+
+# load package(s)
+library(ggplot2)
+library(tidyverse)
+library(skimr)
+
+# load data
+vgsales <- read_csv('data/vgsales.csv')
+
+```
+
+
+### Data Source
+
+Identify and describe your data source or sources --- citations would be appropriate. Citations should include a hyperlink to the data source so that I can click on it to view the site. You should also demonstrate that you can import and work with the data by providing a simple `skim` of the data.
+
+> **Answer**: I am interested in working with a dataset from Kaggle.com which details video game sales of games that sold over 100,000 copies. The dataset contains information on over 16,500 different video games under 11 different variables, and can be downloaded in CSV format. The dataset is linked [here](https://www.kaggle.com/datasets/gregorut/videogamesales). Its various fields include: 
+
+>1. **Rank** (the ranking of a game's overall sales relative to the other ones in the dataset)
+2. **Name** (the game's name)
+3. **Platform** (the platform of the game's release)
+4. **Year** (the year of the game's release)
+5. **Genre** (the game's genre)
+6. **Publisher** (the publisher of the game)
+7. **NA_sales** (the game's sales in North America, in millions)
+8. **EU_sales** (the game's sales in Europe, in millions)
+9. **JP_sales** (the game's sales in Japan, in millions)
+10. **Other_Sales** (the game's sales in the rest of the world, in millions)
+11. **Global_Sales** (the game's total worldwide sales in millions)
+
+> See the code cell and output below where I provide a brief `skim` of this dataset: 
+
+```{r}
+#| label: dataset-skim
+
+# Providing a skim of the dataset
+skim(vgsales)
+
+```
+
+
+### Why This Data?
+
+The reason for your choice of data. Is it interesting to you? Challenging? Is this part of a larger research project? State any questions of interest that might be motivating your choice of data. Include any other motivations or background that you believe to be relevant.
+
+In general, we are asking you to tell us what sorts of questions you are trying to answer or what story you are trying to convey. Maybe you are just exploring a topic that is interesting to you and you are prospecting for a story to tell and that is okay too.
+
+> **Answer**: I chose this dataset because it offers a new and honestly quite fun topic to explore: video games and video game sales. I do not have a lot of background in playing video games, but that’s exactly why I’m motivated to explore this dataset; It gives me an opportunity to learn more about a topic I would not likely explore otherwise. As someone who is not otherwise involved in the world of video games, I’m interested in how game sales differ by publisher and genre, as well as by year. Ultimately, I wonder, what makes a game popular (based on the metrics available in this dataset)? I think that the variables available here offer a great way to approach this question, as a game’s platform, genre, publisher, and year of release are key aspects of any product released on the market and, I hypothesize, may influence sales in different ways. 
+
+> I’m also interested in exploring how a video game’s sales differ by region. This dataset offers information on a game’s global sales, but also breaks game sales down into three regions: (1) North American, (2) European, and (3) sales in Japan. I thought this delineation was interesting. North America and Europe seem to make sense (as continent-wide sales numbers), but it was interesting to see Japan (a single country) included as a specific sales category. I am interested in exploring these sales delineations to visualize trends in game sales. This may help me better understand where the biggest markets are for certain games around the world. 
+
+### Visualization Plan
+
+Share your plan for visualizing the data. Are you going with a presentation and static graphics, presentation with a mix animated and static graphics, or will you attempt to build an app/dashboard? 
+
+This is just an initial plan and you don't have to stick to it.
+
+> **Answer**: I am interested in creating an interactive dashboard with this data, such that a user could visualize trends in video game sales by game, game genre, game publisher, and platform over the years or by region. I propose that, much like the Shiny Project example on our class' Canvas homepage, it would be interesting give users options regarding how they want to visualize the data. 
+
+>I could add a series of dropdown menus on the left side of the screen (much like the project example on Canvas), where users could choose a game by name. They could then be brought to a series of barplots and histograms visualizing the game's sales relative to its genre, publisher, and other games on the hosting platform. It may also be helpful here to have an option for year range specifications so that users can explicitly look at games that were published around the same time as the game they chose, or games that were published before or after it (the dataset includes information on games from 1980 to 2020). 
+
+> I also plan to visualize a game's sales by region through a map visualization. The dataset offers game sales information in North America, Europe, Japan, and the rest of the world (the latter is grouped into one column). It also includes a variable for total world sales. It may be helpful to visualize a game's sales by region in a world map, where sales are indicated in color gradients with text annotations. It may be helpful to have a separate dropdown menu for sales regions so that users could specify the regions they want to see (i.e., all regions, just North America, both Europe and Japan, etc.). 
+
+### Initial Data Issues
+
+Have you been able to examine the data a little? If yes, have you spotted any potential issues like difficult data wrangling or data quality issues such as a significant amount of missing data?
+
+> **Answer**: I've been able to download and examine the data a bit. So far, I haven't identified any critical issues that would impair this project in terms of missing or strange values (the dataset currently has zero missing values). 
+
+> However, something that I think is important to note when discussing this dataset is the following: there are several games that have the same name but were released on different platforms (and thus have different dataset entries). One example is Call of Duty: Black Ops II (on PS3) and Call of Duty: Black Ops II (on X360). I am currently unsure as to how I will best format these dual entries in my app/dashboard, as their only difference is the platform on which they were released. It will be important, thus, to effectively communicate these types of entries to my app/dashboard's users so that they understand which video game they are visualizing. 
+
+### Misc
+
+Students are encourage to add any other information that they think would be useful to communicate about their data and their plan.
+
+If are seeking permission to work with a partner or partners then you should indicate it at the top of this memo (add a new section). Should include how you plan to work together or why working together makes sense for the project.
+
+> **Answer**: I am excited about the prospect of working with this data. I think one challenge that may arise over the course of this project could be choosing effective visualization options in the app/dashboard. I think that incorporating bar graphs for a video games sales relative to the rest of the games in the dataset could be compelling, as could maps that show (with color gradients) where that game sold the most copies. However, there are several games that are either sequels or prequels to others (ex. Call of Duty Black Ops 3 and Black Ops II), so it may be helpful to introduce a dashboard option that allows users to visualize the sales of a given video game "family" (or collection, like Call of Duty in the example), or the sales of a given video game (like Call of Duty: Black Ops II) relative to its larger collection (here, Call of Duty).
+
+### Demonstration of Organization (optional)
+
+It would also be nice, but not required for this memo, to include proof that you are following good data science practice by using a RStudio project for your final project with your data inside a `data/` subdirectory. You can do this by including a screenshot/picture, easiest way is to go to Visual mode and insert picture.
+
+> **Answer:** Below is an image of my data source in the appropriate `data/` subdirectory of `data_vis_labs`. I have added a red rectangle around the data source I will be using.
+
+![(Data Source in Appropriate Subdirectory)](Data_Memo/Data_Memo_Screenshot.png){width=80%}
+
+

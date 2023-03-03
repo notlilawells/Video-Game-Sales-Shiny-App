@@ -1,0 +1,67 @@
+---
+title: "Final Project Data Memo"
+subtitle: "Data Visualization (STAT 302)"
+author: "Lila Wells"
+
+format:
+  html:
+    toc: true
+    embed-resources: true
+    link-external-newwindow: true
+    fig-dpi: 300
+    
+execute:
+  warning: false
+  
+---
+
+## Instructions
+
+After selecting data for the final project write up a short memo that at minimum covers the following:
+
+### Loading Libraries and Dataset Files
+
+```{r}
+#| label: loading-data-and-libraries
+
+# load package(s)
+library(ggplot2)
+library(tidyverse)
+library(skimr)
+
+# load data
+vgsales <- read_csv('vgsales.csv')
+
+```
+
+### Data Play
+
+Playing around a bit with the data
+
+```{r}
+
+# Data wrangling
+
+platform <- vgsales %>% 
+  group_by(Platform) 
+
+
+ggplot(data = platform, aes(x = Platform, y = Global_Sales)) +
+  geom_col() +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45))
+
+```
+
+
+```{r}
+vgsales$Sales_Category <- ifelse(vgsales$NA_Sales > 0, "North America", 
+                                 ifelse(vgsales$EU_Sales > 0, "Europe", 
+                                        ifelse(vgsales$JP_Sales > 0, "Japan", 
+                                               ifelse(vgsales$Other_Sales > 0, "Other", 
+                                                      ifelse(vgsales$Global_Sales > 0, "Global", "Unknown")))))
+
+```
+
+
