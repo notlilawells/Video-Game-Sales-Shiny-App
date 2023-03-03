@@ -14,9 +14,8 @@ Here are a few sneak peek of the app itself.
 
 ### Part 1: Sales by Game Characteristics
 
-![sales_by_characteristics]([https://user-images.githubusercontent.com/101524157/214749972-0bb15ced-fde3-4269-9d1a-c253ab54c0d4.png](https://github.com/notlilawells/Video-Game-Sales-Shiny-App/blob/main/imgs/pt1.png))
+![sales_by_characteristics](https://github.com/notlilawells/Video-Game-Sales-Shiny-App/blob/main/imgs/pt1.png)
 
 ### Part 2: Sales by Region
 
-![sales_by_region]([[https://user-images.githubusercontent.com/101524157/214749972-0bb15ced-fde3-4269-9d1a-c253ab54c0d4.png](https://github.com/notlilawells/Video-Game-Sales-Shiny-App/blob/main/imgs/pt1.png)](https://github.com/notlilawells/Video-Game-Sales-Shiny-App/blob/main/imgs/pt2.png))
-
+![sales_by_region]
