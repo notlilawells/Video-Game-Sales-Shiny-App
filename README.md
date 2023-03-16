@@ -14,9 +14,9 @@ Here are a few sneak peek of the app itself.
 
 ### Part 1: Sales by Game Characteristics
 
-![sales_by_characteristics](<img width="1135" alt="pt1" src="https://user-images.githubusercontent.com/101524157/225711131-0b20a482-1d0f-4cbd-b4ee-c89171ccafe4.png">)
+![sales_by_characteristics](https://user-images.githubusercontent.com/101524157/225711131-0b20a482-1d0f-4cbd-b4ee-c89171ccafe4.png)
 
 ### Part 2: Sales by Region
 
-![sales_by_region](<img width="1139" alt="pt2" src="https://user-images.githubusercontent.com/101524157/225711469-fefdbd7a-88a4-415e-91c3-2e7c957dbcec.png">)
+![sales_by_region](https://user-images.githubusercontent.com/101524157/225711469-fefdbd7a-88a4-415e-91c3-2e7c957dbcec.png)
 
